@@ -1,26 +1,45 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import catppuccin from '@catppuccin/starlight';
 
-// https://astro.build/config
 export default defineConfig({
-	integrations: [
-		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
-			sidebar: [
-				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
-				},
-				{
-					label: 'Reference',
-					items: [{ autogenerate: { directory: 'reference' } }],
-				},
-			],
-		}),
-	],
+  site: 'https://loknezmonzter.github.io',
+  base: '/knowledge-base', // Set to your GitHub repo name
+  integrations: [
+    starlight({
+      title: 'AI Lab & Tech Notes',
+      social: [
+        {
+          icon: 'github',
+          label: 'GitHub',
+          href: 'https://github.com/loknezmonzter'
+        }
+      ],
+      plugins: [
+        catppuccin({
+          dark: { flavor: 'mocha', accent: 'sky' },
+          light: { flavor: 'latte', accent: 'sky' },
+        }),
+      ],
+      sidebar: [
+        {
+          label: 'Fine-Tuning LLMs',
+          items: [
+            {
+              label: 'Setup & Infrastructure',
+              items: [{ autogenerate: { directory: 'fine-tuning/setup' } }],
+            },
+            {
+              label: 'Dataset Engineering',
+              items: [{ autogenerate: { directory: 'fine-tuning/dataset' } }],
+            },
+          ],
+        },
+        {
+          label: 'Autonomous Agents',
+          items: [{ autogenerate: { directory: 'agents' } }],
+        },
+      ],
+    }),
+  ],
 });
