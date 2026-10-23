@@ -3,7 +3,7 @@ import starlight from '@astrojs/starlight';
 import catppuccin from '@catppuccin/starlight';
 
 export default defineConfig({
-  site: 'https://loknezmonzter.github.io',
+  site: 'https://lokNezMonzter.github.io',
   base: '/knowledge-base', // Set to your GitHub repo name
   integrations: [
     starlight({
@@ -12,7 +12,7 @@ export default defineConfig({
         {
           icon: 'github',
           label: 'GitHub',
-          href: 'https://github.com/loknezmonzter'
+          href: 'https://github.com/lokNezMonzter'
         }
       ],
       plugins: [
